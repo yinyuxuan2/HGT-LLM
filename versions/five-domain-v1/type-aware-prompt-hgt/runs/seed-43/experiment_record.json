@@ -1,0 +1,145 @@
+{
+  "experiment_id": "type-aware-prompt-hgt__amazon-2018-5domain-core5-v1__seed-43",
+  "protocol_version": "multidomain-temporal-leave-two-out-v1",
+  "data_version": "amazon-2018-5domain-core5-v1",
+  "model_name": "Type-Aware Prompt HGT",
+  "seed": 43,
+  "hyperparameters": {
+    "protocol_dir": "EXPERIMENT_ROOT/protocol",
+    "prepared_dir": "EXPERIMENT_ROOT/prepared",
+    "features": "EXPERIMENT_ROOT/features/combined_features.npy",
+    "output_dir": "EXPERIMENT_ROOT/runs/seed-43",
+    "seed": 43,
+    "hidden_dim": 128,
+    "heads": 4,
+    "layers": 2,
+    "dropout": 0.2,
+    "neighbors": [
+      15,
+      10
+    ],
+    "batch_size": 2048,
+    "inference_batch_size": 4096,
+    "epochs": 30,
+    "patience": 5,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "workers": 0,
+    "device": "cuda"
+  },
+  "trainable_parameters": 13594782,
+  "peak_gpu_memory_mb": 7800.51,
+  "training_time_seconds": 8141.951109368354,
+  "model_file": "EXPERIMENT_ROOT/runs/seed-43/best_model.pt",
+  "model_sha256": "bb9e110b48aa4b38e3f24a510e090939582a9bf8c8bdd0ad96586b960a05d0b3",
+  "result_file": "EXPERIMENT_ROOT/runs/seed-43/ranking_metrics.json",
+  "result_sha256": "9d25529362ffac11e3ae54b24fc88f9dd0287908c8b994661b98164a12f65a54",
+  "validation": {
+    "recall@10": 0.00490766760337214,
+    "recall@20": 0.00704536330790847,
+    "ndcg@10": 0.0028721459730352947,
+    "ndcg@20": 0.0034074875301431337,
+    "auc": 0.8049648656867856,
+    "ap": 0.08046978089159741
+  },
+  "test": {
+    "recall@10": 0.002990766760337214,
+    "recall@20": 0.004596547571256523,
+    "ndcg@10": 0.0015264781264476821,
+    "ndcg@20": 0.0019280381376594485,
+    "auc": 0.7870857265914417,
+    "ap": 0.06698083071639672
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.6349633680328577,
+      "validation": {
+        "recall@10": 0.0028502609393817745,
+        "recall@20": 0.004626655961461261,
+        "ndcg@10": 0.001202940672265148,
+        "ndcg@20": 0.0016502369965405313
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.4230747162423289,
+      "validation": {
+        "recall@10": 0.003924126856684062,
+        "recall@20": 0.006132075471698114,
+        "ndcg@10": 0.001983205699827335,
+        "ndcg@20": 0.002536379115073521
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.2601719669480325,
+      "validation": {
+        "recall@10": 0.004646728221597752,
+        "recall@20": 0.007035327177840224,
+        "ndcg@10": 0.002452909859403555,
+        "ndcg@20": 0.0030506567376737182
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.1830052625962911,
+      "validation": {
+        "recall@10": 0.00490766760337214,
+        "recall@20": 0.00704536330790847,
+        "ndcg@10": 0.0028695179166706723,
+        "ndcg@20": 0.003404854341820989
+      }
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.14731152877448192,
+      "validation": {
+        "recall@10": 0.0037836210357286232,
+        "recall@20": 0.005489763147330389,
+        "ndcg@10": 0.0020260098446736323,
+        "ndcg@20": 0.0024527116661830772
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.12457889073150824,
+      "validation": {
+        "recall@10": 0.0038839823364110798,
+        "recall@20": 0.00506824568446407,
+        "ndcg@10": 0.0020807282123542705,
+        "ndcg@20": 0.0023785438209126056
+      }
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.10824152619982398,
+      "validation": {
+        "recall@10": 0.0045062224006423126,
+        "recall@20": 0.006312725812926536,
+        "ndcg@10": 0.002448179007820794,
+        "ndcg@20": 0.002903733642368803
+      }
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.09592899831157858,
+      "validation": {
+        "recall@10": 0.0033219590525893215,
+        "recall@20": 0.004897631473303894,
+        "ndcg@10": 0.0017573167163533218,
+        "ndcg@20": 0.002152014968506259
+      }
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.08540799616490759,
+      "validation": {
+        "recall@10": 0.0035427539140907268,
+        "recall@20": 0.004937775993576877,
+        "ndcg@10": 0.001815397246613267,
+        "ndcg@20": 0.0021656565387617004
+      }
+    }
+  ]
+}

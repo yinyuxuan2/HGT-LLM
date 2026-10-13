@@ -1,0 +1,55 @@
+revision: semantic-structure-cross-v1
+status: validated_ready_for_server
+experiment_name: unprompted-cross-hgt
+selected_feature_variant: unprompted-bge-m3-hgt-multidomain-v1
+features_sha256: 3b763664bda1d1665553b6ce4e2986f601638294a01d7cdefee1a031078fe854
+primary_comparator: unprompted-bge-m3-hgt
+secondary_comparator: type-aware-cross-hgt
+type_aware_prompt: false
+backbone: BGE-M3_plus_standard_HGT
+feature_variant_choices:
+  type-aware-cross-hgt: type-aware-prompt-hgt-multidomain-v1
+  unprompted-cross-hgt: unprompted-bge-m3-hgt-multidomain-v1
+protocol_version: multidomain-temporal-leave-two-out-v2
+graph_revision: exact-edge-dedup-v2
+seeds: [42, 43, 44]
+cross_attention:
+  implementation: torch.nn.MultiheadAttention
+  query: current_layer_target_GNN_hidden
+  key: frozen_raw_source_BGE_embedding
+  user_semantic: mean_of_training_interacted_item_BGE_embeddings_only
+  user_calls_BGE: false
+  semantic_input_dimension: 1024
+  structural_hidden_dimension: 128
+  neighbors: same_incoming_edges_as_structural_attention
+  fusion: (1-sigmoid(gate))*structural_weights+sigmoid(gate)*cross_weights
+  gate: learned_scalar_per_layer
+  initial_cross_weight: 0.5
+  attention_dropout: 0.0
+  mha_value_and_output_projections: frozen_unused
+  messages: original_HGT_relation_transformed_values
+  packing_budget: 8192
+  packing_rule: destination_degree_buckets_no_neighbor_truncation
+model:
+  layers: 2
+  heads: 4
+  hidden_dim: 128
+  dropout: 0.2
+  use_rte: false
+training:
+  batch_size: 2048
+  inference_batch_size: 4096
+  neighbors: [15, 10]
+  epochs: 30
+  patience: 5
+  lr: 0.001
+  weight_decay: 0.0001
+  optimizer: AdamW
+  selection: validation_ndcg@10
+evaluation:
+  candidates: all_200000_frozen_items
+  mask: train_interactions_only
+  inference: full_neighbor_layerwise_with_unchanged_semantic_cache
+  representation_dtype: float32
+  metrics: [recall@10, recall@20, ndcg@10, ndcg@20, auc, ap]
+scope: incremental_supervised_ablation_not_full_document_pretraining

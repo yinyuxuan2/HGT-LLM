@@ -1,0 +1,216 @@
+{
+  "experiment": "Amazon Reviews 2018 five-domain Type-Aware Prompt HGT",
+  "data_version": "amazon-2018-5domain-core5-v1",
+  "protocol_version": "multidomain-temporal-leave-two-out-v1",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "metric_statistics": {
+    "validation": {
+      "recall@10": {
+        "mean": 0.003907399973236986,
+        "sample_std": 0.0011184920636420075
+      },
+      "recall@20": {
+        "mean": 0.005981533520674428,
+        "sample_std": 0.001208968407693939
+      },
+      "ndcg@10": {
+        "mean": 0.002258492612314722,
+        "sample_std": 0.0005955858035428066
+      },
+      "ndcg@20": {
+        "mean": 0.002778944122833962,
+        "sample_std": 0.0006154897913311877
+      },
+      "auc": {
+        "mean": 0.8194123381437326,
+        "sample_std": 0.012809257575777333
+      },
+      "ap": {
+        "mean": 0.06838378122186402,
+        "sample_std": 0.010468592951878661
+      }
+    },
+    "test": {
+      "recall@10": {
+        "mean": 0.0022179847450822963,
+        "sample_std": 0.0008643316587633527
+      },
+      "recall@20": {
+        "mean": 0.0037602033989027166,
+        "sample_std": 0.0009614451970083695
+      },
+      "ndcg@10": {
+        "mean": 0.0010847177711912034,
+        "sample_std": 0.0004840887437728671
+      },
+      "ndcg@20": {
+        "mean": 0.001470049172809337,
+        "sample_std": 0.0005075707216891174
+      },
+      "auc": {
+        "mean": 0.7999181148462916,
+        "sample_std": 0.011202863286326031
+      },
+      "ap": {
+        "mean": 0.056206418054413405,
+        "sample_std": 0.009354380318638406
+      }
+    }
+  },
+  "runs": [
+    {
+      "seed": 42,
+      "epochs_completed": 6,
+      "trainable_parameters": 13594782,
+      "peak_gpu_memory_mb": 7801.06,
+      "training_time_seconds": 5431.52477812767,
+      "hyperparameters": {
+        "protocol_dir": "EXPERIMENT_ROOT/protocol",
+        "prepared_dir": "EXPERIMENT_ROOT/prepared",
+        "features": "EXPERIMENT_ROOT/features/combined_features.npy",
+        "output_dir": "EXPERIMENT_ROOT/runs/seed-42",
+        "seed": 42,
+        "hidden_dim": 128,
+        "heads": 4,
+        "layers": 2,
+        "dropout": 0.2,
+        "neighbors": [
+          15,
+          10
+        ],
+        "batch_size": 2048,
+        "inference_batch_size": 4096,
+        "epochs": 30,
+        "patience": 5,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "workers": 0,
+        "device": "cuda"
+      },
+      "model_file": "runs/seed-42/best_model.pt",
+      "model_sha256": "765fd7970e877165bb2440e72803ec95c9d0552f2965bb1818444c528920d639",
+      "result_file": "runs/seed-42/ranking_metrics.json",
+      "result_sha256": "881c9b1a162424005296e551450cff3b8d0f53aea784c9d3f7f6669c683c5c6b",
+      "validation": {
+        "recall@10": 0.002699718988358089,
+        "recall@20": 0.004666800481734243,
+        "ndcg@10": 0.0016827893542482497,
+        "ndcg@20": 0.00217739629403313,
+        "auc": 0.8238919926775533,
+        "ap": 0.06253545387998699
+      },
+      "test": {
+        "recall@10": 0.0012846246487354476,
+        "recall@20": 0.0027097551184263346,
+        "ndcg@10": 0.0005672271533550292,
+        "ndcg@20": 0.0009243330167137634,
+        "auc": 0.8049195635656288,
+        "ap": 0.051481371060514994
+      }
+    },
+    {
+      "seed": 43,
+      "epochs_completed": 9,
+      "trainable_parameters": 13594782,
+      "peak_gpu_memory_mb": 7800.51,
+      "training_time_seconds": 8141.951109368354,
+      "hyperparameters": {
+        "protocol_dir": "EXPERIMENT_ROOT/protocol",
+        "prepared_dir": "EXPERIMENT_ROOT/prepared",
+        "features": "EXPERIMENT_ROOT/features/combined_features.npy",
+        "output_dir": "EXPERIMENT_ROOT/runs/seed-43",
+        "seed": 43,
+        "hidden_dim": 128,
+        "heads": 4,
+        "layers": 2,
+        "dropout": 0.2,
+        "neighbors": [
+          15,
+          10
+        ],
+        "batch_size": 2048,
+        "inference_batch_size": 4096,
+        "epochs": 30,
+        "patience": 5,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "workers": 0,
+        "device": "cuda"
+      },
+      "model_file": "runs/seed-43/best_model.pt",
+      "model_sha256": "bb9e110b48aa4b38e3f24a510e090939582a9bf8c8bdd0ad96586b960a05d0b3",
+      "result_file": "runs/seed-43/ranking_metrics.json",
+      "result_sha256": "9d25529362ffac11e3ae54b24fc88f9dd0287908c8b994661b98164a12f65a54",
+      "validation": {
+        "recall@10": 0.00490766760337214,
+        "recall@20": 0.00704536330790847,
+        "ndcg@10": 0.0028721459730352947,
+        "ndcg@20": 0.0034074875301431337,
+        "auc": 0.8049648656867856,
+        "ap": 0.08046978089159741
+      },
+      "test": {
+        "recall@10": 0.002990766760337214,
+        "recall@20": 0.004596547571256523,
+        "ndcg@10": 0.0015264781264476821,
+        "ndcg@20": 0.0019280381376594485,
+        "auc": 0.7870857265914417,
+        "ap": 0.06698083071639672
+      }
+    },
+    {
+      "seed": 44,
+      "epochs_completed": 7,
+      "trainable_parameters": 13594782,
+      "peak_gpu_memory_mb": 7799.5,
+      "training_time_seconds": 6909.109038431197,
+      "hyperparameters": {
+        "protocol_dir": "EXPERIMENT_ROOT/protocol",
+        "prepared_dir": "EXPERIMENT_ROOT/prepared",
+        "features": "EXPERIMENT_ROOT/features/combined_features.npy",
+        "output_dir": "EXPERIMENT_ROOT/runs/seed-44",
+        "seed": 44,
+        "hidden_dim": 128,
+        "heads": 4,
+        "layers": 2,
+        "dropout": 0.2,
+        "neighbors": [
+          15,
+          10
+        ],
+        "batch_size": 2048,
+        "inference_batch_size": 4096,
+        "epochs": 30,
+        "patience": 5,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "workers": 0,
+        "device": "cuda"
+      },
+      "model_file": "runs/seed-44/best_model.pt",
+      "model_sha256": "85308079831fe53779ef67b5a9c2f426f874b5e83eeabd0a1a6c309d18070412",
+      "result_file": "runs/seed-44/ranking_metrics.json",
+      "result_sha256": "2b69acbfce8341ff742b723286d7878b28d601eef0c75f72d86f6d500f9dee50",
+      "validation": {
+        "recall@10": 0.00411481332798073,
+        "recall@20": 0.00623243677238057,
+        "ndcg@10": 0.0022205425096606213,
+        "ndcg@20": 0.0027519485443256216,
+        "auc": 0.8293801560668588,
+        "ap": 0.06214610889400765
+      },
+      "test": {
+        "recall@10": 0.0023785628261742274,
+        "recall@20": 0.003974307507025291,
+        "ndcg@10": 0.0011604480337708985,
+        "ndcg@20": 0.0015577763640547985,
+        "auc": 0.8077490543818042,
+        "ap": 0.050157052386328504
+      }
+    }
+  ]
+}

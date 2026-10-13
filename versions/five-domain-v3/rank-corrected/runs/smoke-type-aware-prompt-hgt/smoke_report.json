@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "diagnostic_only": true,
+  "seed": 42,
+  "experiment": "type-aware-prompt-hgt",
+  "verified_training_pairs": 1024,
+  "removed_supervision_edges": 1236,
+  "loss": 2.947225332260132,
+  "peak_gpu_memory_mb": 6124.1005859375
+}

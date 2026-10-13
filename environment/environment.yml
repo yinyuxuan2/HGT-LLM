@@ -1,0 +1,21 @@
+name: type-aware-hgt
+channels:
+  - pytorch
+  - nvidia
+  - pyg
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pytorch=2.4
+  - pytorch-cuda=12.1
+  - pyg=2.6
+  - numpy
+  - scipy
+  - scikit-learn
+  - pyyaml
+  - tqdm
+  - pip
+  - pip:
+      - transformers==4.44.2
+      - ujson
+

@@ -1,0 +1,74 @@
+experiment:
+  id: ours-min__amazon-sports-2018-5core-v1
+  model_name: Ours-min
+  description: "Frozen BGE-M3 node features combined with standard HGT"
+  data_version: amazon-sports-2018-5core-v1
+  protocol_version: ours-min-protocol-v1
+
+paths:
+  protocol_dir: "EXPERIMENT_ROOT\\protocol\\amazon-sports-2018-5core-v1"
+  feature_file: "EXPERIMENT_ROOT\\features\\amazon-sports-2018-5core-v1\\bge-m3\\features.npy"
+  result_dir: "EXPERIMENT_ROOT\\results\\amazon-sports-2018-5core-v1\\ours-min"
+  checkpoint_dir: "EXPERIMENT_ROOT\\checkpoints\\amazon-sports-2018-5core-v1\\ours-min"
+
+data:
+  num_users: 299837
+  num_items: 100528
+  num_nodes: 400365
+  train_interactions: 1939162
+  directed_graph_edges_with_reverse: 3878324
+  split: temporal_leave_one_out
+  filter_training_items_at_evaluation: true
+  shared_candidate_set: true
+  frozen_negative_sampling: true
+
+node_features:
+  encoder: BAAI/bge-m3
+  local_model_dir: "EXPERIMENT_ROOT\\models\\bge-m3"
+  dimension: 1024
+  dtype: float16
+  frozen: true
+  max_length: 512
+  encoding_batch_size: 64
+
+model:
+  architecture: standard_hgt
+  hidden_dim: 128
+  num_heads: 4
+  num_layers: 2
+  dropout: 0.2
+  trainable_parameters: 560404
+
+training:
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  train_batch_size: 2048
+  inference_batch_size: 4096
+  neighbors: [15, 10]
+  max_epochs: 30
+  early_stopping_patience: 5
+  early_stopping_metric: ndcg@10
+  device: cuda
+  num_workers: 0
+  deterministic_algorithms: true
+  seeds: [42, 43, 44]
+
+evaluation:
+  primary_metrics: [recall@10, recall@20, ndcg@10, ndcg@20]
+  auxiliary_metrics: [auc, ap]
+  report_mean_and_sample_std: true
+
+checkpoints:
+  seed_42:
+    best_epoch: 15
+    file: "EXPERIMENT_ROOT\\checkpoints\\amazon-sports-2018-5core-v1\\ours-min\\seed-42-best_model.pt"
+    sha256: 58e36955ac048c5ce555d70d9cd61c257c95f5cdc73a825b4d2dcf928aac0a7d
+  seed_43:
+    best_epoch: 11
+    file: "EXPERIMENT_ROOT\\checkpoints\\amazon-sports-2018-5core-v1\\ours-min\\seed-43-best_model.pt"
+    sha256: 13378586e6bd0fa1c22e3995f3b28574574526530d280d0e8a18b4757f11a1a9
+  seed_44:
+    best_epoch: 13
+    file: "EXPERIMENT_ROOT\\checkpoints\\amazon-sports-2018-5core-v1\\ours-min\\seed-44-best_model.pt"
+    sha256: a3ae2b356f29c2534ffc6f897662f94065a59ccd915b75ab065fc55f777a70a8

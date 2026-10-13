@@ -1,0 +1,54 @@
+experiment:
+  name: pure-hgt
+  data_version: amazon-2018-5domain-core5-v1
+  protocol_version: multidomain-temporal-leave-two-out-v1
+  comparison: [type-aware-prompt-hgt, unprompted-bge-m3-hgt]
+  uses_language_model: false
+  uses_pretrained_weights: false
+  uses_text_features: false
+graph:
+  node_types: [user, item, category]
+  node_counts: [99640, 200000, 8885]
+  relations: [purchase, belongs_to, co_purchase]
+  graph_metadata_sha256: a6d799cc33ef287d007b2258964770c298510651f01da5e9f120042d8faa7b85
+  reuse_frozen_graph: true
+  reverse_edges: same_semantic_relation_id
+representation:
+  all_node_types: trainable_id_embedding
+  initialization: normal_mean_0_std_0.02
+  dimension: 128
+  text_encoder: null
+  pretrained_feature_file: null
+model:
+  architecture: standard_hgt
+  hidden_dim: 128
+  heads: 4
+  layers: 2
+  dropout: 0.2
+  scoring: dot_product
+  use_rte: false
+training:
+  seeds: [42, 43, 44]
+  batch_size: 2048
+  inference_batch_size: 4096
+  neighbors: [15, 10]
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  max_epochs: 30
+  early_stopping_patience: 5
+  early_stopping_metric: validation_ndcg@10
+  device: cuda
+  cublas_workspace_config: ":4096:8"
+evaluation:
+  primary_metrics: [recall@10, recall@20, ndcg@10, ndcg@20]
+  auxiliary_metrics: [auc, ap]
+  full_candidate_ranking: true
+  mask_train_interactions: true
+  frozen_negative_files: true
+  best_hidden_storage_dtype: float16
+  standard_deviation: sample_ddof_1
+notes:
+  - "No language model is loaded, encoded, distilled, or used for initialization."
+  - "Node ID embeddings change parameter count; parameter counts are not matched."
+  - "Same transductive evaluation as the existing baselines; no unseen-ID cold-start claim."

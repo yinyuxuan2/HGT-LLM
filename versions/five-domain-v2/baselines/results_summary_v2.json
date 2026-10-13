@@ -1,0 +1,197 @@
+{
+  "scope": "v2 mixed-domain supervised baseline; test metrics, not validation",
+  "completed_runs": 9,
+  "expected_runs": 12,
+  "missing_methods": [
+    "uniform-prompt-bge-m3-hgt"
+  ],
+  "hash_status": "All completed model/result hashes verified on server; local result hashes verified; models not downloaded by this export",
+  "methods": {
+    "pure-hgt": {
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "test": {
+        "recall@10": {
+          "mean": 0.0018834470761407735,
+          "sample_std": 0.0005896884776942368
+        },
+        "recall@20": {
+          "mean": 0.0033319951826575674,
+          "sample_std": 0.0011031072102961831
+        },
+        "ndcg@10": {
+          "mean": 0.0009069944964815268,
+          "sample_std": 0.00027057011374248156
+        },
+        "ndcg@20": {
+          "mean": 0.0012698708134260296,
+          "sample_std": 0.0003926566042435966
+        },
+        "auc": {
+          "mean": 0.7307873054880347,
+          "sample_std": 0.0367476801437691
+        },
+        "ap": {
+          "mean": 0.036463469001848936,
+          "sample_std": 0.0074075834906120125
+        }
+      },
+      "runs": [
+        {
+          "seed": 42,
+          "best_epoch": 2,
+          "trainable_parameters": 39938206,
+          "training_time_seconds": 4777.684147965163,
+          "peak_gpu_memory_mb": 6032.78,
+          "model_sha256": "e48ddf8a2f9b84f563be4160c789f8d19ee5627371eb871a70aa8709b97a6c3a",
+          "result_sha256": "5860557d33be44086298b2a418e71317a9e5e83cf72a34eed965ca95a2bc9188"
+        },
+        {
+          "seed": 43,
+          "best_epoch": 1,
+          "trainable_parameters": 39938206,
+          "training_time_seconds": 4309.43493951112,
+          "peak_gpu_memory_mb": 6033.47,
+          "model_sha256": "9977a958cf777dc3177795787bfe140951fa95e73f580f1a55d8587753262652",
+          "result_sha256": "50194dd804632efc3862a32fabde778b3de7246bcad034b54e11231109e24da6"
+        },
+        {
+          "seed": 44,
+          "best_epoch": 2,
+          "trainable_parameters": 39938206,
+          "training_time_seconds": 4816.148674055934,
+          "peak_gpu_memory_mb": 6049.02,
+          "model_sha256": "4576265ef754dd94b2c0473c388361cbbad25945466ac147156ad1062a8c4042",
+          "result_sha256": "0e4c48c01f28f452bec8a7aee478fdc635e34e30b977ba04bf6fc3e2ef9a53c2"
+        }
+      ]
+    },
+    "type-aware-prompt-hgt": {
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "test": {
+        "recall@10": {
+          "mean": 0.0024220527231366253,
+          "sample_std": 0.0010029269701272265
+        },
+        "recall@20": {
+          "mean": 0.0041081225746019,
+          "sample_std": 0.001774560733016997
+        },
+        "ndcg@10": {
+          "mean": 0.0011972750659354572,
+          "sample_std": 0.0005011405483253608
+        },
+        "ndcg@20": {
+          "mean": 0.0016198774776524302,
+          "sample_std": 0.0006966973884631413
+        },
+        "auc": {
+          "mean": 0.7580262103548688,
+          "sample_std": 0.017409631914384868
+        },
+        "ap": {
+          "mean": 0.049953885175386216,
+          "sample_std": 0.012135429748195878
+        }
+      },
+      "runs": [
+        {
+          "seed": 42,
+          "best_epoch": 22,
+          "trainable_parameters": 13594782,
+          "training_time_seconds": 25090.810043450445,
+          "peak_gpu_memory_mb": 7802.98,
+          "model_sha256": "0d4142dc72052d48575d381b833d50c5042b97cc99c0ace98329ccee64f51e57",
+          "result_sha256": "7bb74d7d8d9914f6f4bf7cc9a59a0189b35065a7f86be6e1abb72a344f5274fa"
+        },
+        {
+          "seed": 43,
+          "best_epoch": 10,
+          "trainable_parameters": 13594782,
+          "training_time_seconds": 14084.633685022593,
+          "peak_gpu_memory_mb": 7798.0,
+          "model_sha256": "d4894d4845ca7d3bca51fa9e3c3a59571199cf12462dc24a75c6fd9c16929f94",
+          "result_sha256": "bed502669ca9c0f03d328578c46072ed0d2927851bb11c21e6598b1cf8fa4e1f"
+        },
+        {
+          "seed": 44,
+          "best_epoch": 2,
+          "trainable_parameters": 13594782,
+          "training_time_seconds": 6477.0188028514385,
+          "peak_gpu_memory_mb": 7797.55,
+          "model_sha256": "e7a2d0a46747086ca75780d8ae3eb0c2eb0773b489d3001a9aafd2b6210ad2b4",
+          "result_sha256": "587c5a57d33ce190ed3b42766b86c7e4823b633759c563adbe50aa213c874e5a"
+        }
+      ]
+    },
+    "unprompted-bge-m3-hgt": {
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "test": {
+        "recall@10": {
+          "mean": 0.0018265756724207146,
+          "sample_std": 0.0007735636560635542
+        },
+        "recall@20": {
+          "mean": 0.0034658102502341764,
+          "sample_std": 0.0011537767228543684
+        },
+        "ndcg@10": {
+          "mean": 0.0008509054244617437,
+          "sample_std": 0.00041414582721106764
+        },
+        "ndcg@20": {
+          "mean": 0.0012605603188116771,
+          "sample_std": 0.0005092544904760714
+        },
+        "auc": {
+          "mean": 0.767611084755246,
+          "sample_std": 0.011232947839156742
+        },
+        "ap": {
+          "mean": 0.052450062560545546,
+          "sample_std": 0.009266432730877024
+        }
+      },
+      "runs": [
+        {
+          "seed": 42,
+          "best_epoch": 1,
+          "trainable_parameters": 13594782,
+          "training_time_seconds": 5659.106441393495,
+          "peak_gpu_memory_mb": 7798.88,
+          "model_sha256": "6271c4bd02820d9db1ed877ce03267b813b52d5856aad8e87e0dc95b962d7c84",
+          "result_sha256": "656124c6ed113d20f68de8ec42c0f27adda37cc697bcb3d28ad4649dff01907d"
+        },
+        {
+          "seed": 43,
+          "best_epoch": 22,
+          "trainable_parameters": 13594782,
+          "training_time_seconds": 25721.256382439286,
+          "peak_gpu_memory_mb": 7816.19,
+          "model_sha256": "7e640fe42b74df342f5d0e5f54aabedd2d2602f37249c77939a683762ff8026d",
+          "result_sha256": "125b6ee453991edc94b21e185c2a3da1b3c9eeb9d128cec6d6431c4c5afa49bc"
+        },
+        {
+          "seed": 44,
+          "best_epoch": 1,
+          "trainable_parameters": 13594782,
+          "training_time_seconds": 5562.198624741286,
+          "peak_gpu_memory_mb": 7791.96,
+          "model_sha256": "480a2c8cb34d9a827a05a2fc9638ddeecf1aaf5b5bb3b8ae89891ee5a4e1dba1",
+          "result_sha256": "c0527dfa60d5110f4796583f42b394ec82b560c52e29af5207da5619770b206d"
+        }
+      ]
+    }
+  }
+}

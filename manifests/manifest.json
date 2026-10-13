@@ -1,0 +1,37 @@
+{
+  "variant": "type-aware-prompt-hgt-multidomain-v1",
+  "protocol_version": "multidomain-temporal-leave-two-out-v2",
+  "num_items": 200000,
+  "num_categories": 8885,
+  "num_llm_nodes": 208885,
+  "num_item_category_edges": 731942,
+  "num_co_purchase_edges": 864136,
+  "semantic_train_graph_edges": 3686204,
+  "relation_types": [
+    "purchase",
+    "belongs_to",
+    "co_purchase"
+  ],
+  "forbidden_relation_types": [
+    "view"
+  ],
+  "category_bridge": "exact normalized category-name sharing across source domains",
+  "co_purchase_source": "metadata also_buy, first 10 selected neighbors per item, undirected deduplication",
+  "item_template": "Product: {title}. Description: {description[:200]}.",
+  "category_template": "Category: {name}. Parent category: {most frequent parent}. Contains products like: {up to 5 deterministic representative titles}.",
+  "user_encoder": "trainable ID embedding + mean pooling of frozen train-item embeddings",
+  "metadata_rows_scanned": 5350469,
+  "invalid_metadata_rows": 0,
+  "items_missing_metadata": 82,
+  "files": {
+    "llm_nodes.jsonl": "7f4072a2f3e64424c4abbca330da4045e9df4ccd732d42188498c19bea76737e",
+    "graph_metadata.npz": "fc8cae3861ec6f37b3ba69f4c7a6ae9cd3208518d872af3927afa7352c185e23",
+    "categories.json": "a0fe401de469bd41e7355731f5360c2be29d03ac5ab866cedbb5f0e862545f67"
+  },
+  "graph_revision": "exact-edge-dedup-v2",
+  "removed_duplicate_edges": {
+    "item_category": 34,
+    "co_purchase": 0
+  },
+  "source_manifest_sha256": "ab92195b070d9b7dc3c3d13632bf0f8faa51b6f20803eac5431c61f480ce66c1"
+}

@@ -1,0 +1,196 @@
+{
+  "experiment_id": "type-aware-cross-hgt__v2__amazon-2018-5domain-core5-v1__seed-42",
+  "trainer_revision": "semantic-structure-cross-v1",
+  "evaluation_representation_dtype": "float32",
+  "protocol_version": "multidomain-temporal-leave-two-out-v2",
+  "data_version": "amazon-2018-5domain-core5-v1",
+  "model_name": "Type-Aware Prompt + Semantic-Structure Cross Attention HGT",
+  "seed": 42,
+  "selected_cross_weights": [
+    0.3847631514072418,
+    0.2529391348361969
+  ],
+  "hyperparameters": {
+    "protocol_dir": "EXPERIMENT_ROOT/v2/protocol",
+    "prepared_dir": "EXPERIMENT_ROOT/v2/prepared",
+    "features": "EXPERIMENT_ROOT/v2/../features/combined_features.npy",
+    "features_manifest": "EXPERIMENT_ROOT/v2/inputs/type-aware.json",
+    "output_dir": "EXPERIMENT_ROOT/v2/cross-v1/runs/seed-42",
+    "seed": 42,
+    "hidden_dim": 128,
+    "heads": 4,
+    "layers": 2,
+    "dropout": 0.2,
+    "neighbors": [
+      15,
+      10
+    ],
+    "batch_size": 2048,
+    "inference_batch_size": 4096,
+    "epochs": 30,
+    "patience": 5,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "workers": 0,
+    "device": "cuda",
+    "experiment_name": "type-aware-cross-hgt",
+    "cross_init": 0.5,
+    "cross_pack_budget": 8192
+  },
+  "trainable_parameters": 13889696,
+  "features_sha256": "1a70edd433cb92e007e68b44ca5c04df2d4b309c9e81a940ee31ad140e98fbff",
+  "code_sha256": {
+    "scripts/train_hgt_cross_attention_v2.py": "b990c0425b9d6a44c7b362724170b36e14df29b1264abf11ca719971dbcfc959",
+    "scripts/train_hgt_link.py": "7c38048ce4273da629ee69f8f5421ff86a575898bd3dab0c34734b72add7ed65",
+    "ours_min/standard_hgt.py": "98e2f529ff5125b45ed706a85984ab1f9fb5dda9c111f49ea7b2f729ec1c3d83",
+    "type_aware/cross_attention.py": "458b71c98bd5b078818764c211f37f3f3635baf85b62016ae0d63e1ecd2dba91",
+    "type_aware/link_model.py": "abc636b97733da01daaf06f7db11a91bd4665923e8f7014e724962f8d128b8ab"
+  },
+  "best_epoch": 6,
+  "uses_language_model": true,
+  "protocol_file_hashes": {
+    "candidate_items.json": "1b1031c0cbd54bd7e6ef5c2b6a5131af4168a8493adc7f5b44dc8af39e657bb9",
+    "negatives_seed_42.npz": "92fd79125a3a5c6dd39c4c273576e38ef37786a0e7f0b7cf0a50b00f262aed0d",
+    "negatives_seed_43.npz": "cecc50ba16ec0e4c7c2a2f8c3aa2aea2d02ac01ffc11937194c52feea477e474",
+    "negatives_seed_44.npz": "507c79b46b028b0bffc47b2aeeed26051637863ff50457bb21a38484dba533b6",
+    "test.csv": "c304485277fdd2726e0c59b4ec876577ea875e12550aef6b59460fdb7c42cfd1",
+    "train.csv": "7a853ac8b8d7cff7fa8b1c63845d7eb45155dcde3f4fd93ab12e2a971db9f770",
+    "users.json": "d817f5f5f5289dcbcb716f4a54ab6d74f7c4ad2f53ec2907d6035d540facf3c7",
+    "validation.csv": "898a04dbd5aa7399a1e0d78c07d4fb88b71e376561e323fa33fb2a57d6082297"
+  },
+  "graph_metadata_sha256": "fc8cae3861ec6f37b3ba69f4c7a6ae9cd3208518d872af3927afa7352c185e23",
+  "peak_gpu_memory_mb": 12283.37,
+  "training_time_seconds": 20018.48199205473,
+  "model_file": "EXPERIMENT_ROOT/v2/cross-v1/runs/seed-42/best_model.pt",
+  "model_sha256": "1a9548ff744ba1d7307a7f6752a719c79becf6a78dcb3c1aa635ad222a362451",
+  "result_file": "EXPERIMENT_ROOT/v2/cross-v1/runs/seed-42/ranking_metrics.json",
+  "result_sha256": "c5d8033dbc8f40a35d8846d239fe909baf10f944daed930c13269f6b70aac65b",
+  "validation": {
+    "recall@10": 0.004696908871938981,
+    "recall@20": 0.007316338819751104,
+    "ndcg@10": 0.0025903006473467177,
+    "ndcg@20": 0.0032456225963456713,
+    "auc": 0.7759254544647564,
+    "ap": 0.07033549927226813
+  },
+  "test": {
+    "recall@10": 0.0023384183059012445,
+    "recall@20": 0.004345644319550381,
+    "ndcg@10": 0.0010705331909469887,
+    "ndcg@20": 0.0015728653918926326,
+    "auc": 0.7509210360267659,
+    "ap": 0.05353227925389175
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.6156581804654885,
+      "validation": {
+        "recall@10": 0.003050983540746688,
+        "recall@20": 0.004947812123645122,
+        "ndcg@10": 0.001856738567316403,
+        "ndcg@20": 0.002330966800636721
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.415877331926086,
+      "validation": {
+        "recall@10": 0.0032015254917703733,
+        "recall@20": 0.004957848253713368,
+        "ndcg@10": 0.0015392475697540557,
+        "ndcg@20": 0.00197974110043872
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.263167884120104,
+      "validation": {
+        "recall@10": 0.004225210758731433,
+        "recall@20": 0.006663990365315135,
+        "ndcg@10": 0.0022189950608599383,
+        "ndcg@20": 0.0028282327923679963
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.18930700199258083,
+      "validation": {
+        "recall@10": 0.004536330790847049,
+        "recall@20": 0.007446808510638298,
+        "ndcg@10": 0.002504232868893182,
+        "ndcg@20": 0.0032331695312814318
+      }
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.1493027660676104,
+      "validation": {
+        "recall@10": 0.0034223203532717785,
+        "recall@20": 0.005549979927739863,
+        "ndcg@10": 0.0017859777820751592,
+        "ndcg@20": 0.0023206629650162577
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.12621630230463357,
+      "validation": {
+        "recall@10": 0.004696908871938981,
+        "recall@20": 0.007316338819751104,
+        "ndcg@10": 0.0025903006473467177,
+        "ndcg@20": 0.0032456225963456713
+      }
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.10884241644832592,
+      "validation": {
+        "recall@10": 0.0027197912484945804,
+        "recall@20": 0.004415897230028101,
+        "ndcg@10": 0.001494617426086745,
+        "ndcg@20": 0.001920430320799231
+      }
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.0960693630822286,
+      "validation": {
+        "recall@10": 0.0032215977519068646,
+        "recall@20": 0.005008028904054596,
+        "ndcg@10": 0.001741257183394342,
+        "ndcg@20": 0.0021883828147486097
+      }
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.0856873188576124,
+      "validation": {
+        "recall@10": 0.0033520674427940586,
+        "recall@20": 0.005289040545965476,
+        "ndcg@10": 0.0019483262150343141,
+        "ndcg@20": 0.002434815634199052
+      }
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.07709374961671402,
+      "validation": {
+        "recall@10": 0.003030911280610197,
+        "recall@20": 0.004727017262143717,
+        "ndcg@10": 0.00161311481789574,
+        "ndcg@20": 0.002038642479497857
+      }
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.06991643377622953,
+      "validation": {
+        "recall@10": 0.003623042954636692,
+        "recall@20": 0.005519871537535127,
+        "ndcg@10": 0.001963907609451061,
+        "ndcg@20": 0.0024382820281875703
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "protocol_version": "multidomain-temporal-leave-two-out-v2",
+  "data_version": "amazon-2018-5domain-core5-v1",
+  "source_file": "interactions.csv",
+  "source_sha256": "d89d8ef8ad2f9ceba2fc92a21db0544690fb981b7cdcf6b22f4ee6dbee8eb54f",
+  "num_users": 99640,
+  "num_items": 200000,
+  "num_nodes": 299640,
+  "num_edges": {
+    "train": 2090126,
+    "validation": 99640,
+    "test": 99640
+  },
+  "dropped_short_users": 0,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "candidate_items_sha256": "1b1031c0cbd54bd7e6ef5c2b6a5131af4168a8493adc7f5b44dc8af39e657bb9",
+  "files": {
+    "candidate_items.json": "1b1031c0cbd54bd7e6ef5c2b6a5131af4168a8493adc7f5b44dc8af39e657bb9",
+    "negatives_seed_42.npz": "48c78e3548a4b147b2ae95a3f965d1011bb837bf838bc62dd474cd16fea4ad8f",
+    "negatives_seed_43.npz": "5d71033409c671fa0fd7ee0353eab3fcb0609476676f99b9dd47c8f55f76cfc7",
+    "negatives_seed_44.npz": "bcefcb79a10f8674429a774d412eac5a708d9dda2d42f59a3ec07e0c33d24c17",
+    "test.csv": "c304485277fdd2726e0c59b4ec876577ea875e12550aef6b59460fdb7c42cfd1",
+    "train.csv": "7a853ac8b8d7cff7fa8b1c63845d7eb45155dcde3f4fd93ab12e2a971db9f770",
+    "users.json": "d817f5f5f5289dcbcb716f4a54ab6d74f7c4ad2f53ec2907d6035d540facf3c7",
+    "validation.csv": "898a04dbd5aa7399a1e0d78c07d4fb88b71e376561e323fa33fb2a57d6082297"
+  },
+  "source_protocol_manifest_sha256": "f7b1844fdd5ee0a8e848e44558d1ff5b656f3c958ed65078ede384ebac74b88c",
+  "negative_sampling": "uniform rejection, preserve first distinct accepted draws",
+  "changes": [
+    "auxiliary negatives fixed; splits, candidates, train negative arrays unchanged"
+  ]
+}

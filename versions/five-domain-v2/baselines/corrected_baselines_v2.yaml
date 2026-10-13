@@ -1,0 +1,54 @@
+revision: baseline-integrity-v2
+scope: mixed-domain transductive supervised baselines
+data_version: amazon-2018-5domain-core5-v1
+protocol_version: multidomain-temporal-leave-two-out-v2
+protocol_dir: EXPERIMENT_ROOT/protocol/amazon-2018-5domain-core5-v2
+prepared_dir: EXPERIMENT_ROOT/features/amazon-2018-5domain-core5-v1/graph-v2/prepared
+seeds: [42, 43, 44]
+models:
+  - pure-hgt
+  - unprompted-bge-m3-hgt
+  - type-aware-prompt-hgt
+  - uniform-prompt-bge-m3-hgt
+comparisons:
+  strict_prompt_ablation: [type-aware-prompt-hgt, uniform-prompt-bge-m3-hgt]
+  raw_text_baseline: unprompted-bge-m3-hgt
+  structure_only_baseline: pure-hgt
+model:
+  hidden_dim: 128
+  heads: 4
+  layers: 2
+  dropout: 0.2
+  use_rte: false
+training:
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  batch_size: 2048
+  inference_batch_size: 4096
+  neighbors: [15, 10]
+  epochs: 30
+  patience: 5
+  selection: validation_ndcg@10
+  supervision_context: legacy_graph_reconstruction_not_masked_edge_pretraining
+evaluation:
+  candidate_set: all_200000_frozen_items
+  mask: train_interactions_only
+  representation_dtype: float32
+  auxiliary_negatives: uniform_without_replacement_per_positive_100
+  fixed_training_negative_arrays_preserved: true
+  primary: [recall@10, recall@20, ndcg@10, ndcg@20]
+  auxiliary: [auc, ap]
+  std: sample_ddof_1
+not_implemented_full_proposal:
+  - semantic_structure_cross_attention
+  - masked_edge_pretraining_T1
+  - masked_semantic_alignment_T2
+  - subgraph_contrastive_T3
+  - frozen_backbone_graph_prompt_tuning
+  - Beauty_only_evaluation
+  - unseen_domain_and_Yelp_transfer
+  - item_attribute_prediction
+  - strict_new_item_cold_start
+  - few_shot_5_10_20
+launch_status: not_started

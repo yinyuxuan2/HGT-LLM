@@ -1,0 +1,6 @@
+*.sh text eol=lf
+*.py -text
+*.yaml -text
+*.yml -text
+*.json -text
+*.md text eol=lf

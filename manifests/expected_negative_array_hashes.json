@@ -1,0 +1,56 @@
+{
+  "negatives_seed_42.npz": {
+    "train": {
+      "shape": [
+        2090126,
+        2
+      ],
+      "dtype": "<i8",
+      "sha256": "641ed38483d13a52285b939a238327c784d96be07cb099200966f53d08a94430"
+    },
+    "auxiliary_eval": {
+      "shape": [
+        19928000,
+        2
+      ],
+      "dtype": "<i8",
+      "sha256": "c6ac56d99775e25746ec1ea9f9a0e9ec8d60bf6e801331ffb11ac11f0849f481"
+    }
+  },
+  "negatives_seed_43.npz": {
+    "train": {
+      "shape": [
+        2090126,
+        2
+      ],
+      "dtype": "<i8",
+      "sha256": "8feed9b32b193f9c64e0692709f5bb8caebc3e01ad2d829254fef93597b23767"
+    },
+    "auxiliary_eval": {
+      "shape": [
+        19928000,
+        2
+      ],
+      "dtype": "<i8",
+      "sha256": "9bca595e1b0dc1fddd190bc6aebe98c4d5f762b10d01589824c7dc9cf9d7de5f"
+    }
+  },
+  "negatives_seed_44.npz": {
+    "train": {
+      "shape": [
+        2090126,
+        2
+      ],
+      "dtype": "<i8",
+      "sha256": "5c32ddb795a233550f714851c8d72defec13a87c88ea71ba4a7480d0d2abdac6"
+    },
+    "auxiliary_eval": {
+      "shape": [
+        19928000,
+        2
+      ],
+      "dtype": "<i8",
+      "sha256": "8180945aa29e8c04f0afd0107baf757343c3c061f5953c7b82e2a47f3871fc9d"
+    }
+  }
+}

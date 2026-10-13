@@ -1,0 +1,54 @@
+experiment:
+  name: unprompted-bge-m3-hgt
+  data_version: amazon-2018-5domain-core5-v1
+  protocol_version: multidomain-temporal-leave-two-out-v1
+  comparison: type-aware-prompt-hgt
+
+node_text:
+  item: "raw title followed by description truncated to 200 characters"
+  category: "category name only"
+  user: "no BGE encoding; train-history Item mean plus trainable ID embedding"
+  order: "identical to type-aware-prompt-hgt"
+
+graph:
+  node_types: [user, item, category]
+  relations: [purchase, belongs_to, co_purchase]
+  graph_metadata: "same frozen file as type-aware-prompt-hgt"
+
+encoder:
+  model: BAAI/bge-m3
+  frozen: true
+  pooling: normalized_cls
+  output_dimension: 1024
+  dtype: float16
+  max_length: 512
+  batch_size: 64
+
+model:
+  architecture: standard_hgt
+  hidden_dim: 128
+  heads: 4
+  layers: 2
+  dropout: 0.2
+  user_pooling: mean
+  scoring: dot_product
+
+training:
+  seeds: [42, 43, 44]
+  batch_size: 2048
+  inference_batch_size: 4096
+  neighbors: [15, 10]
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  max_epochs: 30
+  early_stopping_patience: 5
+  early_stopping_metric: ndcg@10
+  device: cuda
+  cublas_workspace_config: ":4096:8"
+
+evaluation:
+  primary_metrics: [recall@10, recall@20, ndcg@10, ndcg@20]
+  auxiliary_metrics: [auc, ap]
+  full_candidate_ranking: true
+  mask_train_interactions: true

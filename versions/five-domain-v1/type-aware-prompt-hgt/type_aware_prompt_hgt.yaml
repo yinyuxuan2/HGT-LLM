@@ -1,0 +1,66 @@
+experiment:
+  name: type-aware-prompt-hgt
+  innovation: Type-Aware Prompt Encoding
+  data_version: amazon-2018-5domain-core5-v1
+  protocol_version: multidomain-temporal-leave-two-out-v1
+
+node_types:
+  user:
+    encoder: "trainable ID embedding + mean pooling of train-history Item embeddings"
+    llm_encoded: false
+  item:
+    llm_encoded: true
+    prompt: "Product: {title}. Description: {description[:200]}."
+    excluded_fields: [category, brand, feature]
+  category:
+    llm_encoded: true
+    prompt: "Category: {name}. Parent category: {parent}. Contains products like: {representative_product_titles}."
+    representative_products: 5
+    sampling: deterministic_sha256
+
+graph:
+  node_types: [user, item, category]
+  relations:
+    - purchase
+    - belongs_to
+    - co_purchase
+  adjacency: "purchase and belongs_to use bidirectional adjacency with a shared semantic relation id; co_purchase is symmetric"
+  forbidden_relations: [view]
+  co_purchase_source: "training interactions only"
+
+encoder:
+  model: BAAI/bge-m3
+  frozen: true
+  pooling: normalized_cls
+  output_dimension: 1024
+  dtype: float16
+  max_length: 512
+  batch_size: 64
+
+model:
+  architecture: standard_hgt
+  hidden_dim: 128
+  heads: 4
+  layers: 2
+  dropout: 0.2
+  user_pooling: mean
+  scoring: dot_product
+
+training:
+  seeds: [42, 43, 44]
+  batch_size: 2048
+  inference_batch_size: 4096
+  neighbors: [15, 10]
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  max_epochs: 30
+  early_stopping_patience: 5
+  early_stopping_metric: ndcg@10
+  device: cuda
+
+evaluation:
+  primary_metrics: [recall@10, recall@20, ndcg@10, ndcg@20]
+  auxiliary_metrics: [auc, ap]
+  full_candidate_ranking: true
+  mask_train_interactions: true
